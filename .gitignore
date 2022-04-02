@@ -1,2 +1,4 @@
 .python-version
 .vscode/
+rikai_ocr.egg-info/
+.ipynb_checkpoints
