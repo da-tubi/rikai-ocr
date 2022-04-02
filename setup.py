@@ -15,7 +15,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/da-tubi/rikai-ocr",
     python_requires=">=3.7",
-    install_requires=["rikai>=0.1.5"],
+    install_requires=["rikai>=0.1.6"],
     extras_require={
         "dev": [
             "black",
