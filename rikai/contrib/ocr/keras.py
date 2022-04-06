@@ -10,7 +10,7 @@ class KerasModelType(ModelType, Pretrained):
         return keras_ocr.pipeline.Pipeline()
     
     def schema(self) -> str:
-        return "array<struct<box:box2d, score:float, text:string>>"
+        return "array<struct<text:string, mask:mask>>"
 
     def predict(self, images, *args, **kwargs) -> Any:
         return []
