@@ -41,8 +41,8 @@ def convert_pred_groups_for_rikai(pred_groups, shapes):
             points = pred[1]
             poly = []
             for point in points:
-                poly.append(point[0])
-                poly.append(point[1])
+                poly.append(float(point[0]))
+                poly.append(float(point[1]))
             mask = Mask.from_polygon([poly], shape[1], shape[0])
             result = {'text': text, 'mask': mask}
             result_group.append(result)
