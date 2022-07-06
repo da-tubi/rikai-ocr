@@ -41,8 +41,8 @@ def convert_pred_groups_for_rikai(pred_groups, shapes):
             points = pred[1]
             poly = []
             for point in points:
-                poly.append(point[0])
-                poly.append(point[1])
+                poly.append(float(point[0]))
+                poly.append(float(point[1]))
             mask = Mask.from_polygon([poly], shape[1], shape[0])
             result = {'text': text, 'mask': mask}
             result_group.append(result)
@@ -61,7 +61,7 @@ class KerasModelType(ModelType, Pretrained):
         return keras_ocr.pipeline.Pipeline()
     
     def schema(self) -> str:
-        return "array<struct<text:string, mask:box2d>>"
+        return "array<struct<text:string, mask:mask>>"
 
     def transform(self) -> Callable:
         return lambda image: image.to_numpy()
@@ -73,6 +73,6 @@ class KerasModelType(ModelType, Pretrained):
 
         pred_groups = self.model.recognize(images)
         shapes = [_ndarray_to_shape(image) for image in images]
-        return convert_pred_groups_to_box2d(pred_groups, shapes)
+        return convert_pred_groups_for_rikai(pred_groups, shapes)
 
 MODEL_TYPE = KerasModelType()
