@@ -8,7 +8,7 @@ with open(
 
 setup(
     name="rikai-ocr",
-    version="0.0.1",
+    version="0.0.2",
     license="Apache License, Version 2.0",
     author="Darcy Shen",
     long_description=long_description,
@@ -16,7 +16,7 @@ setup(
     url="https://github.com/da-tubi/rikai-ocr",
     python_requires=">=3.7",
     install_requires=[
-        "rikai==0.1.7",
+        "rikai==0.1.12",
         "keras-ocr==0.8.9",
         "tensorflow"
     ],
